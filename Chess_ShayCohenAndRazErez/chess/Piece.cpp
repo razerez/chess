@@ -16,3 +16,21 @@ void Piece::move(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 	this->_yPos = yPos;
 	board[this->_xPos][this->_yPos] = temp;
 }
+bool Piece::isWhite()
+{
+	bool flag = false;
+	if (this->_name >= 'A' && this->_name <= 'Z')
+	{
+		flag = true;
+	}
+	return flag;
+}
+bool Piece::sameColor(Piece& other)
+{
+	bool flag = false;
+	if (this->isWhite() == other.isWhite())
+	{
+		flag = true;
+	}
+	return flag;
+}

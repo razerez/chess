@@ -12,4 +12,6 @@ public:
 	virtual ~Piece();
 	virtual int canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) = 0;
 	void move(Piece* board[][BOARD_SIZE], int xPos, int yPos);
+	bool isWhite();
+	bool sameColor(Piece& other);
 };
