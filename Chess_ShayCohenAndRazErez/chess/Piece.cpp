@@ -6,7 +6,7 @@ Piece::Piece(char name, int xPos, int yPos)
 	this->_yPos = yPos;
 }
 Piece::~Piece()
-{
+{	
 }
 void Piece::move(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 {

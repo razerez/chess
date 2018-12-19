@@ -1,5 +1,6 @@
 #pragma once
 #define BOARD_SIZE 8
+#include <iostream>
 class Piece
 {
 protected:
