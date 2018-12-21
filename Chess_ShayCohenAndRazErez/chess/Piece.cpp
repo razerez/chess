@@ -8,6 +8,28 @@ Piece::Piece(char name, int xPos, int yPos)
 Piece::~Piece()
 {	
 }
+
+
+int Piece::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
+{
+	int codeError = 0;
+	Piece* newPlace = board[xPos][yPos];
+	if (newPlace && this->sameColor(*newPlace))
+	{
+		codeError = 3;
+	}
+	else if (xPos > 8 || xPos < 0 || yPos > 8 || yPos < 0)
+	{
+		codeError = 5;
+	}
+	else if (xPos == this->_xPos && yPos == this->_yPos)
+	{
+		codeError = 7;
+	}
+	return codeError;
+}
+
+
 void Piece::move(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 {
 	Piece* temp = board[this->_xPos][this->_yPos];

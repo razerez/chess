@@ -10,7 +10,7 @@ protected:
 public:
 	Piece(char name, int xPos, int yPos);
 	virtual ~Piece();
-	virtual int canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) = 0;
+	virtual int canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos);
 	void move(Piece* board[][BOARD_SIZE], int xPos, int yPos);
 	bool isWhite();
 	bool sameColor(Piece& other);

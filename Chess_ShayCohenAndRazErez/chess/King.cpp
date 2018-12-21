@@ -9,22 +9,13 @@ King::~King()
 int King::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 {
 	int codeError = 0;
-	Piece* newPlace = board[xPos][yPos];
-	if (!(abs(this->_xPos - xPos) <= 1 && abs(this->_yPos - yPos)))
+	if (!(abs(this->_xPos - xPos) <= 1 && abs(this->_yPos - yPos) <= 1))
 	{
 		codeError = 6;
 	}
-	if (xPos > 8 || xPos < 0 || yPos >8 || yPos < 0)
+	else
 	{
-		codeError = 5;
-	}
-	else if(newPlace && this->sameColor(*newPlace))
-	{
-		codeError = 3;
-	}
-	else if (xPos == this->_xPos && yPos == this->_yPos)
-	{
-		codeError = 7;
+		codeError = Piece::canMove(board, xPos, yPos);
 	}
 	return codeError;
 }
