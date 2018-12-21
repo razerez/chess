@@ -28,7 +28,20 @@ int King::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 	}
 	return codeError;
 }
-bool King::check()
+bool King::check(Piece* board[][BOARD_SIZE])
 {
-
+	int i = 0;
+	int j = 0;
+	bool check = false;
+	for (i = 0; i < BOARD_SIZE && !check; i++)
+	{
+		for (j = 0; j < BOARD_SIZE && !check; j++)
+		{
+			if (board[i][j]->canMove(board, this->_xPos, this->_yPos))
+			{
+				check = true;
+			}
+		}
+	}
+	return check;
 }
