@@ -56,3 +56,12 @@ bool Piece::sameColor(Piece& other)
 	}
 	return flag;
 }
+bool Piece::nullCheck(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
+{
+	bool retVal = true;
+	if (board[xPos][yPos] != NULL)
+	{
+		retVal = false;
+	}
+	return retVal;
+}

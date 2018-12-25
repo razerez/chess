@@ -14,4 +14,5 @@ public:
 	void move(Piece* board[][BOARD_SIZE], int xPos, int yPos);
 	bool isWhite();
 	bool sameColor(Piece& other);
+	bool Piece::nullCheck(Piece* board[][BOARD_SIZE], int xPos, int yPos) const;
 };

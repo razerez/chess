@@ -1,0 +1,10 @@
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\bin\Debug\chessGraphics.exe.config
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\bin\Debug\chessGraphics.exe
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\bin\Debug\chessGraphics.pdb
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\obj\Debug\chessGraphics.csprojResolveAssemblyReference.cache
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\obj\Debug\chessGraphics.Form1.resources
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\obj\Debug\chessGraphics.Properties.Resources.resources
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\obj\Debug\chessGraphics.csproj.GenerateResource.Cache
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\obj\Debug\chessGraphics.csproj.CoreCompileInputs.cache
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\obj\Debug\chessGraphics.exe
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\chessGraphics\chessGraphics\obj\Debug\chessGraphics.pdb
