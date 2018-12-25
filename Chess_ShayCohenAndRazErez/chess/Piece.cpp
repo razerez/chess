@@ -8,7 +8,10 @@ Piece::Piece(char name, int xPos, int yPos)
 Piece::~Piece()
 {	
 }
-
+char Piece::getName()
+{
+	return this->_name;
+}
 
 int Piece::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 {
@@ -29,14 +32,24 @@ int Piece::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 	return codeError;
 }
 
-
-void Piece::move(Piece* board[][BOARD_SIZE], int xPos, int yPos)
+int Piece::getX()
 {
-	Piece* temp = board[this->_xPos][this->_yPos];
+	return this->_xPos;
+
+}
+int Piece::getY()
+{
+	return this->_yPos;
+}
+Piece* Piece::move(Piece* board[][BOARD_SIZE], int xPos, int yPos)
+{
+	Piece* tempPiece1 = board[this->_xPos][this->_yPos];
+	Piece* targetPiece = board[xPos][yPos];
 	board[this->_xPos][this->_yPos] = 0;
 	this->_xPos = xPos;
 	this->_yPos = yPos;
-	board[this->_xPos][this->_yPos] = temp;
+	board[this->_xPos][this->_yPos] = tempPiece1;
+	return targetPiece;
 }
 bool Piece::isWhite()
 {

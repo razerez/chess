@@ -1,7 +1,7 @@
 #include "Queen.h"
 
 
-class Rook : Queen
+class Rook : public Queen
 {
 public:
 	Rook(char name, int xPos, int yPos);

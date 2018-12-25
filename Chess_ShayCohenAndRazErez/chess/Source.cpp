@@ -1,12 +1,12 @@
 #include "Pipe.h"
 #include <iostream>
 #include <thread>
+#include "Chess.h"
 
 using namespace std;
 void main()
 {
 	srand(time_t(NULL));
-
 	
 	Pipe p;
 	bool isConnect = p.connect();
@@ -32,14 +32,16 @@ void main()
 	}
 	
 
+	char msg[2];
+	msg[1] = NULL;
 	char msgToGraphics[1024];
 	// msgToGraphics should contain the board string accord the protocol
 	// YOUR CODE
 
-	strcpy_s(msgToGraphics, "rnbkqbnrpppppppp################################PPPPPPPPRNBKQBNR1"); // just example...
-	
+	strcpy_s(msgToGraphics, "rk############################################################RK1"); // just example...
 	p.sendMessageToGraphics(msgToGraphics);   // send the board string
-
+	Chess myGame = Chess(msgToGraphics);
+	myGame.printBoard();
 	// get message from graphics
 	string msgFromGraphics = p.getMessageFromGraphics();
 
@@ -49,17 +51,14 @@ void main()
 		// according the protocol. Ex: e2e4           (move e2 to e4)
 		
 		// YOUR CODE
-		strcpy_s(msgToGraphics, "YOUR CODE"); // msgToGraphics should contain the result of the operation
-
-
-
-
+ // msgToGraphics should contain the result of the operation
+		msg[0] = myGame.handleInput(msgFromGraphics) + (int)'0';
+		myGame.printBoard();
 		// return result to graphics		
-		p.sendMessageToGraphics(msgToGraphics);   
+		p.sendMessageToGraphics(msg);
 
 		// get message from graphics
 		msgFromGraphics = p.getMessageFromGraphics();
 	}
-
 	p.close();
 }

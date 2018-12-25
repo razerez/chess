@@ -1,7 +1,3 @@
-﻿  Queen.cpp
-  Chess.cpp
-  Generating Code...
-c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(16): error C4716: 'Queen::canMove': must return a value
-  Compiling...
-  King.cpp
-  Generating Code...
+﻿  Source.cpp
+  chess.vcxproj -> C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\Debug\chess.exe
+  chess.vcxproj -> C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\Debug\chess.pdb (Partial PDB)

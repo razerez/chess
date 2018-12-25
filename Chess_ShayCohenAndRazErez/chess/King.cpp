@@ -28,9 +28,12 @@ bool King::check(Piece* board[][BOARD_SIZE])
 	{
 		for (j = 0; j < BOARD_SIZE && !check; j++)
 		{
-			if (board[i][j]->canMove(board, this->_xPos, this->_yPos))
+			if (board[i][j] != 0)
 			{
-				check = true;
+				if (!board[i][j]->canMove(board, _xPos, _yPos))
+				{
+					check = true;
+				}
 			}
 		}
 	}
