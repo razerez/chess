@@ -20,7 +20,7 @@ Queen::~Queen()
 //}
 
 
-bool Queen::canMoveVertically(Piece* board[][BOARD_SIZE], int xPos, int yPos)//check if the location is vertical to the current place if true: call checkVerticle and return its return value| else: return false
+bool Queen::canMoveVertically(Piece* board[][BOARD_SIZE], int xPos, int yPos) const//check if the location is vertical to the current place if true: call checkVerticle and return its return value| else: return false
 {
 	bool retVal = false;
 	if ((xPos == this->_xPos && yPos != this->_yPos) || (yPos == this->_yPos && xPos != this->_xPos)) //if new place is dirctly above or dirctly beside current place
@@ -31,7 +31,7 @@ bool Queen::canMoveVertically(Piece* board[][BOARD_SIZE], int xPos, int yPos)//c
 }
 
 
-bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos)
+bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 {
 	bool retVal = true;
 	if (xPos > this->_xPos)

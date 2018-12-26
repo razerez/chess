@@ -10,11 +10,11 @@ protected:
 public:
 	Piece(char name, int xPos, int yPos);
 	virtual ~Piece();
-	virtual int canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos);
+	virtual int canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) const;
 	Piece* move(Piece* board[][BOARD_SIZE], int xPos, int yPos);
-	bool isWhite();
-	bool sameColor(Piece& other);
-	bool Piece::nullCheck(Piece* board[][BOARD_SIZE], int xPos, int yPos) const;
+	bool isWhite() const;
+	bool sameColor(Piece& other) const;
+	bool nullCheck(Piece* board[][BOARD_SIZE], int xPos, int yPos) const;
 	char getName();
 	int getX();
 	int getY();

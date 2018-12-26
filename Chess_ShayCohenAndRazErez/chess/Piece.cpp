@@ -13,7 +13,7 @@ char Piece::getName()
 	return this->_name;
 }
 
-int Piece::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
+int Piece::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 {
 	int codeError = 0;
 	Piece* newPlace = board[xPos][yPos];
@@ -51,7 +51,7 @@ Piece* Piece::move(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 	board[this->_xPos][this->_yPos] = tempPiece1;
 	return targetPiece;
 }
-bool Piece::isWhite()
+bool Piece::isWhite() const
 {
 	bool flag = false;
 	if (this->_name >= 'A' && this->_name <= 'Z')
@@ -60,7 +60,7 @@ bool Piece::isWhite()
 	}
 	return flag;
 }
-bool Piece::sameColor(Piece& other)
+bool Piece::sameColor(Piece& other) const
 {
 	bool flag = false;
 	if (this->isWhite() == other.isWhite())

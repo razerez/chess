@@ -1,5 +1,4 @@
 #include "Chess.h"
-#include "Rook.h"
 Piece* makeLetterToPiece(char letter, int xPos, int yPos)
 {
 	Piece* newPiece = 0;
@@ -14,11 +13,17 @@ Piece* makeLetterToPiece(char letter, int xPos, int yPos)
 	case 'r':
 		newPiece = new Rook('r', xPos, yPos);
 		break;
+	case 'n':
+		newPiece = new Kinght('n', xPos, yPos);
+		break;
 	case 'K':
 		newPiece = new King('K', xPos, yPos);
 		break;
 	case 'R':
 		newPiece = new Rook('R', xPos, yPos);
+		break;
+	case 'N':
+		newPiece = new Kinght('N', xPos, yPos);
 		break;
 	default:
 		newPiece = 0;
@@ -69,7 +74,7 @@ int Chess::handleInput(string input)
 	std::cout << "x:" << oldxPos << "y:" << oldyPos << std::endl;
 	std::cout << "x:" << newxPos << "y:" << newyPos << std::endl;
 	Piece* currPiece = _board[oldxPos][oldyPos];
-	Piece* eatedPiece = 0;
+	Piece* atePiece = 0;
 	King* myKing = bKing;
 	King* enemyKing = wKing;
 	if (this->whiteTurn)
@@ -83,12 +88,15 @@ int Chess::handleInput(string input)
 		if (!codeError)
 		{
 			std::cout << currPiece->getX() << " " << currPiece->getY() << std::endl;
-			eatedPiece = currPiece->move(_board, newxPos, newyPos);
+			atePiece = currPiece->move(_board, newxPos, newyPos);
 			if (myKing->check(_board))
 			{
-				_board[newxPos][newyPos] = eatedPiece;
 				currPiece->move(_board, oldxPos, oldyPos);
 				codeError = 4;
+				if (atePiece)
+				{
+					atePiece->move(_board, newxPos, newyPos);
+				}
 			}
 			else if (enemyKing->check(_board))
 			{
@@ -110,7 +118,7 @@ void Chess::printBoard()
 {
 	int i = 0;
 	int j = 0;
-	for (i = 0; i < BOARD_SIZE; i++)
+	for (i = BOARD_SIZE - 1; i >= 0; i--)
 	{
 		for (j = 0; j < BOARD_SIZE; j++)
 		{

@@ -38,7 +38,7 @@ void main()
 	// msgToGraphics should contain the board string accord the protocol
 	// YOUR CODE
 
-	strcpy_s(msgToGraphics, "rk############################################################RK1"); // just example...
+	strcpy_s(msgToGraphics, "rkn##########################################################RKN1"); // just example...
 	p.sendMessageToGraphics(msgToGraphics);   // send the board string
 	Chess myGame = Chess(msgToGraphics);
 	myGame.printBoard();

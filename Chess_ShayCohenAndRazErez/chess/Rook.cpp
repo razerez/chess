@@ -11,7 +11,7 @@ Rook::~Rook()
 }
 
 
-int Rook::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
+int Rook::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 {
 	int codeError = 0;
 	if (!Queen::canMoveVertically(board, xPos, yPos))
