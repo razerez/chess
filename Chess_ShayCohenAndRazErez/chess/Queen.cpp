@@ -39,6 +39,10 @@ bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 		for (size_t x = this->_xPos + 1; x < xPos; x++)
 		{
 			retVal = Piece::nullCheck(board, x, this->_yPos);
+			if (retVal == false)
+			{
+				x = xPos;
+			}
 		}
 	}
 	else if (xPos < this->_xPos)
@@ -46,6 +50,10 @@ bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 		for (size_t x = this->_xPos - 1; x > xPos; x--)
 		{
 			retVal = Piece::nullCheck(board, x, this->_yPos);
+			if (retVal == false)
+			{
+				x = xPos;
+			}
 		}
 	}
 	else if (yPos > this->_yPos)
@@ -53,6 +61,10 @@ bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 		for (size_t y = this->_yPos + 1; y < yPos; y++)
 		{
 			retVal = Piece::nullCheck(board, this->_xPos, y);
+			if (retVal == false)
+			{
+				y = yPos;
+			}
 		}
 	}
 	else if (yPos < this->_yPos)
@@ -60,6 +72,10 @@ bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 		for (size_t y = this->_yPos - 1; y > yPos; y--)
 		{
 			retVal = Piece::nullCheck(board, this->_xPos, y);
+			if (retVal == false)
+			{
+				y = yPos;
+			}
 		}
 	}
 	return retVal;
@@ -79,7 +95,7 @@ bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 //
 //bool Queen::checkDiagonal(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 //{
-//
+//	bool retVal = false;
 //}
 
 
