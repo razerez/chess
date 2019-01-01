@@ -8,22 +8,28 @@ Piece* makeLetterToPiece(char letter, int xPos, int yPos)
 		newPiece = 0;
 		break;
 	case 'k':
-		newPiece = new King('k', xPos, yPos);
+		newPiece = new King(letter, xPos, yPos);
 		break;
 	case 'r':
-		newPiece = new Rook('r', xPos, yPos);
+		newPiece = new Rook(letter, xPos, yPos);
 		break;
 	case 'n':
-		newPiece = new Kinght('n', xPos, yPos);
+		newPiece = new Kinght(letter, xPos, yPos);
+		break;
+	case 'p':
+		newPiece = new Pawn(letter, xPos, yPos);
 		break;
 	case 'K':
-		newPiece = new King('K', xPos, yPos);
+		newPiece = new King(letter, xPos, yPos);
 		break;
 	case 'R':
-		newPiece = new Rook('R', xPos, yPos);
+		newPiece = new Rook(letter, xPos, yPos);
 		break;
 	case 'N':
-		newPiece = new Kinght('N', xPos, yPos);
+		newPiece = new Kinght(letter, xPos, yPos);
+		break;
+	case 'P':
+		newPiece = new Pawn(letter, xPos, yPos);
 		break;
 	default:
 		newPiece = 0;
@@ -71,6 +77,7 @@ int Chess::handleInput(string input)
 	int newyPos = input[2] - 'a';
 	int newxPos = input[3] - '1';
 	int codeError = 0;
+	bool freeMem = true;
 	std::cout << "x:" << oldxPos << "y:" << oldyPos << std::endl;
 	std::cout << "x:" << newxPos << "y:" << newyPos << std::endl;
 	Piece* currPiece = _board[oldxPos][oldyPos];
@@ -93,6 +100,7 @@ int Chess::handleInput(string input)
 			{
 				currPiece->move(_board, oldxPos, oldyPos);
 				codeError = 4;
+				freeMem = false;
 				if (atePiece)
 				{
 					atePiece->move(_board, newxPos, newyPos);
@@ -101,6 +109,10 @@ int Chess::handleInput(string input)
 			else if (enemyKing->check(_board))
 			{
 				codeError = 1;
+			}
+			if (freeMem && atePiece)
+			{
+				delete atePiece;
 			}
 		}
 	}

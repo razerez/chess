@@ -3,6 +3,7 @@
 #include "Queen.h"
 #include "Rook.h"
 #include "Kinght.h"
+#include "Pawn.h"
 #include <iostream>
 using std::string;
 Piece* makeLetterToPiece(char letter, int xPos, int yPos);
