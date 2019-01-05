@@ -95,7 +95,7 @@ bool Queen::canMoveDiagonally(Piece* board[][BOARD_SIZE], int xPos, int yPos) co
 
 bool Queen::checkDiagonal(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 {
-	bool retVal = false;
+	bool retVal = true;
 	if (xPos > this->_xPos && yPos > this->_yPos)
 	{
 		for (size_t i = 1; this->_xPos + i < xPos && this->_yPos + i < yPos; i++)

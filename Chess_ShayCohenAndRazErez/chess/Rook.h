@@ -5,5 +5,5 @@ class Rook : public Queen
 public:
 	Rook(char name, int xPos, int yPos);
 	~Rook();
-	int canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) const;
+	virtual int canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) const;
 };

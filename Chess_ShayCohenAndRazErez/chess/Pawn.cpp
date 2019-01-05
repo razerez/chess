@@ -1,5 +1,13 @@
 #include "Pawn.h"
-bool sameSign(int num1, int num2)
+Pawn::Pawn(char name, int xPos, int yPos) : Piece::Piece(name, xPos, yPos)
+{
+	this->_isMoved = false;
+}
+Pawn::~Pawn()
+{
+
+}
+bool Pawn::sameSign(int num1, int num2)
 {
 	bool flag = false;
 	if ((num1 > 0 && num2 > 0) || (num1 < 0 && num2 < 0))
@@ -7,14 +15,6 @@ bool sameSign(int num1, int num2)
 		flag = true;
 	}
 	return flag;
-}
-Pawn::Pawn(char name, int xPos, int yPos) : Rook::Rook(name, xPos, yPos)
-{
-	_isMoved = false;
-}
-Pawn::~Pawn()
-{
-
 }
 int Pawn::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) 
 {
@@ -24,19 +24,76 @@ int Pawn::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
 	{
 		maxSteps = -1;
 	}
-	if (this->isWhite())
+	else if(this->isWhite())
 	{
 		maxSteps *= -1;
-	}
-	if(!(sameSign((xPos - this->_xPos),maxSteps) && abs(xPos - this->_xPos) <= abs(maxSteps) || !(abs(xPos - this->_xPos) == 1 && abs(yPos - this->_yPos) == 1 && !(this->sameColor(*board[xPos][yPos])))))//TOCO: fix here call me for help
-	{
-		codeError = 6;
+		if (xPos - this->_xPos > maxSteps)
+		{
+			codeError = 6;
+		}
+		else if(!((xPos == this->_xPos + 1 && yPos == this->_yPos + 1) || (xPos == this->_xPos + 1 && yPos == this->_yPos - 1) || (yPos == this->_yPos && xPos > this->_xPos)))
+		{
+			codeError = 6;
+		}
+		else if ((yPos == this->_yPos && xPos > this->_xPos))
+		{
+			if (!Piece::nullCheck(board, xPos, yPos))
+			{
+				codeError = 3;
+			}
+		}
+		else if((xPos == this->_xPos + 1 && yPos == this->_yPos + 1) || (xPos == this->_xPos + 1 && yPos == this->_yPos - 1))
+		{
+			if(sameSign(xPos, yPos))
+			{
+				codeError = 3;
+			}
+		}
+		else if (xPos - this->_xPos == 2)
+		{
+			if (!Piece::nullCheck(board, this->_xPos + 1, this->_yPos))
+			{
+				codeError = 6;
+			}
+		}
 	}
 	else
 	{
+		if (xPos + this->_xPos > maxSteps)
+		{
+			codeError = 6;
+		}
+		else if (!((xPos == this->_xPos - 1 && yPos == this->_yPos - 1) || (xPos == this->_xPos - 1 && yPos == this->_yPos + 1) || (yPos == this->_yPos && xPos < this->_xPos)))
+		{
+			codeError = 6;
+		}
+		else if ((yPos == this->_yPos && xPos < this->_xPos))
+		{
+			if (!Piece::nullCheck(board, xPos, yPos))
+			{
+				codeError = 3;
+			}
+		}
+		else if ((xPos == this->_xPos - 1 && yPos == this->_yPos - 1) || (xPos == this->_xPos - 1 && yPos == this->_yPos + 1))
+		{
+			if (sameSign(xPos, yPos))
+			{
+				codeError = 3;
+			}
+		}
+		else if (xPos - this->_xPos == 2)
+		{
+			if (!Piece::nullCheck(board, this->_xPos - 1, this->_yPos))
+			{
+				codeError = 6;
+			}
+		}
+	}
+	if(codeError == 0)
+	{
 		codeError = Piece::canMove(board, xPos, yPos);
 	}
-	if (maxSteps == 2 && !codeError)
+	if (maxSteps == 2 && codeError == 0)
 	{
 		this->_isMoved = true;
 	}
