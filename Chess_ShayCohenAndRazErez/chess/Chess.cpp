@@ -13,6 +13,12 @@ Piece* makeLetterToPiece(char letter, int xPos, int yPos)
 	case 'r':
 		newPiece = new Rook(letter, xPos, yPos);
 		break;
+	case 'b':
+		newPiece = new Bishop(letter, xPos, yPos);
+		break;
+	case 'q':
+		newPiece = new Queen(letter, xPos, yPos);
+		break;
 	case 'n':
 		newPiece = new Kinght(letter, xPos, yPos);
 		break;
@@ -24,6 +30,12 @@ Piece* makeLetterToPiece(char letter, int xPos, int yPos)
 		break;
 	case 'R':
 		newPiece = new Rook(letter, xPos, yPos);
+		break;
+	case 'B':
+		newPiece = new Bishop(letter, xPos, yPos);
+		break;
+	case 'Q':
+		newPiece = new Queen(letter, xPos, yPos);
 		break;
 	case 'N':
 		newPiece = new Kinght(letter, xPos, yPos);

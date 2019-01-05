@@ -5,19 +5,19 @@ Queen::Queen(char name, int xPos, int yPos) : Piece::Piece(name, xPos, yPos)
 Queen::~Queen()
 {
 }
-//int Queen::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos)
-//{
-//	int codeError = 0;
-//	if (!canMoveVertically(board, xPos, yPos) || !canMoveDiagonally(board, xPos, yPos))
-//	{
-//		codeError = 6;
-//	}
-//	else
-//	{
-//		codeError = Piece::canMove(board, xPos, yPos);
-//	}
-//	return codeError;
-//}
+int Queen::canMove(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
+{
+	int codeError = 0;
+	if (!canMoveVertically(board, xPos, yPos) && !canMoveDiagonally(board, xPos, yPos))
+	{
+		codeError = 6;
+	}
+	else
+	{
+		codeError = Piece::canMove(board, xPos, yPos);
+	}
+	return codeError;
+}
 
 
 bool Queen::canMoveVertically(Piece* board[][BOARD_SIZE], int xPos, int yPos) const//check if the location is vertical to the current place if true: call checkVerticle and return its return value| else: return false
@@ -82,20 +82,65 @@ bool Queen::checkVerticle(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
 }
 
 
-//bool Queen::canMoveDiagonally(Piece* board[][BOARD_SIZE], int xPos, int yPos)//check if the location is diagonal to the current place if true: call canMoveDiagonally and return its value| else: return false
-//{
-//	bool retVal = false;
-//	if (abs(this->_xPos - xPos) == abs(this->_yPos - yPos)) //if new place is dirctly above or dirctly beside current place
-//	{
-//		retVal = checkDiagonally(board, xPos, yPos);
-//	}
-//	return retVal;
-//}
-//
-//
-//bool Queen::checkDiagonal(Piece* board[][BOARD_SIZE], int xPos, int yPos)
-//{
-//	bool retVal = false;
-//}
+bool Queen::canMoveDiagonally(Piece* board[][BOARD_SIZE], int xPos, int yPos) const//check if the location is diagonal to the current place if true: call canMoveDiagonally and return its value| else: return false
+{
+	bool retVal = false;
+	if (abs(this->_xPos - xPos) == abs(this->_yPos - yPos)) //if new place is diagonal to the current place
+	{
+		retVal = checkDiagonal(board, xPos, yPos);
+	}
+	return retVal;
+}
+
+
+bool Queen::checkDiagonal(Piece* board[][BOARD_SIZE], int xPos, int yPos) const
+{
+	bool retVal = false;
+	if (xPos > this->_xPos && yPos > this->_yPos)
+	{
+		for (size_t i = 1; this->_xPos + i < xPos && this->_yPos + i < yPos; i++)
+		{
+			retVal = Piece::nullCheck(board, this->_xPos + i, this->_yPos + i);
+			if (retVal == false)
+			{
+				i = xPos;
+			}
+		}
+	}
+	else if (xPos < this->_xPos && yPos > this->_yPos)
+	{
+		for (size_t i = 1; this->_xPos - i > xPos && this->_yPos + i < yPos; i++)
+		{
+			retVal = Piece::nullCheck(board, this->_xPos - i, this->_yPos + i);
+			if (retVal == false)
+			{
+				i = yPos;
+			}
+		}
+	}
+	else if (xPos > this->_xPos && yPos < this->_yPos)
+	{
+		for (size_t i = 1; this->_xPos + i < xPos && this->_yPos - i > yPos; i++)
+		{
+			retVal = Piece::nullCheck(board, this->_xPos + i, this->_yPos - i);
+			if (retVal == false)
+			{
+				i = xPos;
+			}
+		}
+	}
+	else if (xPos < this->_xPos && yPos < this->_yPos)
+	{
+		for (size_t i = 1; this->_xPos - i > xPos && this->_yPos - i > yPos; i++)
+		{
+			retVal = Piece::nullCheck(board, this->_xPos - i, this->_yPos - i);
+			if (retVal == false)
+			{
+				i = xPos;
+			}
+		}
+	}
+	return retVal;
+}
 
 

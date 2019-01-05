@@ -1,7 +1,22 @@
-﻿  Queen.cpp
+﻿  stdafx.cpp
+  Source.cpp
+  Rook.cpp
+  Queen.cpp
 c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(39): warning C4018: '<': signed/unsigned mismatch
 c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(50): warning C4018: '>': signed/unsigned mismatch
 c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(61): warning C4018: '<': signed/unsigned mismatch
 c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(72): warning C4018: '>': signed/unsigned mismatch
-  chess.vcxproj -> C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\Debug\chess.exe
-  chess.vcxproj -> C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\Debug\chess.pdb (Partial PDB)
+c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(101): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(112): warning C4018: '>': signed/unsigned mismatch
+c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(112): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(123): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(123): warning C4018: '>': signed/unsigned mismatch
+c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(134): warning C4018: '>': signed/unsigned mismatch
+  Piece.cpp
+  Knight.cpp
+  King.cpp
+  Chess.cpp
+  Bishop.cpp
+  Generating Code...
+Chess.obj : error LNK2019: unresolved external symbol "public: __thiscall Pawn::Pawn(char,int,int)" (??0Pawn@@QAE@DHH@Z) referenced in function "class Piece * __cdecl makeLetterToPiece(char,int,int)" (?makeLetterToPiece@@YAPAVPiece@@DHH@Z)
+C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\Debug\chess.exe : fatal error LNK1120: 1 unresolved externals
