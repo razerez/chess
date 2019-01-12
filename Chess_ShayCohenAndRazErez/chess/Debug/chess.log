@@ -1,7 +1,0 @@
-﻿  Queen.cpp
-c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(39): warning C4018: '<': signed/unsigned mismatch
-c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(50): warning C4018: '>': signed/unsigned mismatch
-c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(61): warning C4018: '<': signed/unsigned mismatch
-c:\users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\chess_shaycohenandrazerez\chess\queen.cpp(72): warning C4018: '>': signed/unsigned mismatch
-  chess.vcxproj -> C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\Debug\chess.exe
-  chess.vcxproj -> C:\Users\user\repos\magshimim_cpp1_chess_razerezandshaycohen\Chess_ShayCohenAndRazErez\Debug\chess.pdb (Partial PDB)
